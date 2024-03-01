@@ -1,6 +1,9 @@
-const url = `https://openapi.programming-hero.com/api/phones?search=a`;
+let searchText = 'iphone';
+
 
 const loadPhone = async () =>{
+  phoneContainer.innerHTML = '';
+  const url = `https://openapi.programming-hero.com/api/phones?search=${document.getElementById('searched-text').value}`;
   const res = await fetch(url);
   const data = await res.json();
   const phones = data.data;
@@ -14,7 +17,7 @@ const displayPhone = (phones) =>{
   for(const phone of phones){
     i++;
     phoneContainer.innerHTML += `<div class="card w-96 bg-base-100 shadow-xl">
-    <figure><img src="${phone.image}" alt="phone" />
+    <figure class="mt-5"><img src="${phone.image}" alt="phone" />
     </figure>
     <div class="card-body">
       <h2 class="card-title">${phone.phone_name}</h2>

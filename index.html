@@ -2,7 +2,6 @@
 <!-- <html lang="en"> -->
 <html lang="en" data-theme="light">
 
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,14 +13,16 @@
 <body>
 
   <head class="">
-    <h2 class="text-6xl text-center text-white">Hunting Phone</h2>
+    <h2 class="text-6xl text-center p-10 font-serif">Hunting Phone</h2>
   </head>
-  <main>
-    <button class="btn" onclick="iphone()">Samsung</button>
-    <button class="btn" onclick="samsung()">Iphone</button>
-    <h1 class="text-2xl font-normal"><span id="searchResult"> </span> result found</h1>
+  <main class="w-full px-10">
+    <section id="search-section" class="flex items-center gap-2 bg-gray-300 px-10 py-5 rounded-md">
+      <input id="searched-text" type="text" placeholder="Search...." class="input input-bordered w-full max-w-xs" />
+      <button onclick="loadPhone()" class="btn btn-active btn-accent">Search</button>
+      <h1 class="text-2xl font-normal ml-auto"><span id="searchResult"> </span> result found</h1>
+    </section>
     <section>
-      <div id="phone-container" class="grid grid-cols-4 gap-10 bg-white">
+      <div id="phone-container" class="grid grid-cols-4 gap-4 bg-white">
       </div>
     </section>
   </main>
