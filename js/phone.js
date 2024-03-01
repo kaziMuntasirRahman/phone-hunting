@@ -3,7 +3,11 @@ let searchText = 'iphone';
 
 const loadPhone = async () =>{
   phoneContainer.innerHTML = '';
-  const url = `https://openapi.programming-hero.com/api/phones?search=${document.getElementById('searched-text').value}`;
+  let inputField = document.getElementById('searched-text').value;
+  if(inputField===''){
+    inputField = 'n';
+  }
+  const url = `https://openapi.programming-hero.com/api/phones?search=${inputField}`;
   const res = await fetch(url);
   const data = await res.json();
   const phones = data.data;
