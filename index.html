@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!-- <html lang="en"> -->
+<html lang="en" data-theme="light">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Hunting Phone</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+  <head class="">
+    <h2 class="text-6xl text-center text-white">Hunting Phone</h2>
+  </head>
+  <main>
+    <button class="btn" onclick="iphone()">Samsung</button>
+    <button class="btn" onclick="samsung()">Iphone</button>
+    <h1 class="text-2xl font-normal"><span id="searchResult"> </span> result found</h1>
+    <section>
+      <div id="phone-container" class="grid grid-cols-4 gap-10 bg-white">
+      </div>
+    </section>
+  </main>
+  <footer></footer>
+
+  <script src="js/phone.js"></script>
+</body>
+
+</html>
