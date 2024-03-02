@@ -1,30 +1,26 @@
-let searchText = 'iphone';
+const sampleSearchText = 's';
+const phoneContainer = document.getElementById('phone-container');
 
 
-const loadPhone = async () =>{
+const loadPhone = async (searchText) => {
   phoneContainer.innerHTML = '';
-  let inputField = document.getElementById('searched-text').value;
-  if(inputField===''){
-    inputField = 'n';
-  }
-  const url = `https://openapi.programming-hero.com/api/phones?search=${inputField}`;
+  const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
   const res = await fetch(url);
   const data = await res.json();
   const phones = data.data;
   displayPhone(phones);
 }
 
-const phoneContainer = document.getElementById('phone-container');
-let i = 0;
 
-const displayPhone = (phones) =>{
-  for(const phone of phones){
+const displayPhone = (phones) => {
+  let i = 0;
+  for (const phone of phones) {
     i++;
-    phoneContainer.innerHTML += `<div class="card w-96 bg-base-100 shadow-xl">
+    phoneContainer.innerHTML += `<div class="card max-w-96 bg-base-100 shadow-xl">
     <figure class="mt-5"><img src="${phone.image}" alt="phone" />
     </figure>
     <div class="card-body">
-      <h2 class="card-title">${phone.phone_name}</h2>
+    <h2 class="card-title">${phone.phone_name}</h2>
       <p>If a dog chews shoes whose shoes does he choose? If a dog chews shoes whose shoes does he choose?</p>
       <h2 class="card-title">${phone.slug}</h2>
       <div class="card-actions justify-end">
@@ -32,10 +28,15 @@ const displayPhone = (phones) =>{
       </div>
     </div>
   </div>`
-}
+  }
   document.getElementById('searchResult').innerHTML = i;
 }
 
 
+function searchHandler() {
+  const searchFieldText = document.getElementById('search-field').value;
+  loadPhone(searchFieldText);
+}
 
-loadPhone();
+
+loadPhone(sampleSearchText);
